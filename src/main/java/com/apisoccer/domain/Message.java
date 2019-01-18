@@ -5,6 +5,8 @@ public class Message {
 	private boolean isResult;
 	private Object obj;
 	private String status;
+	public static String OK="OK";
+	public static String FAIL="FAIL";
 	
 	public String getMsg() {
 		return msg;

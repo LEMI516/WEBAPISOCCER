@@ -1,12 +1,16 @@
 package com.apisoccer.domain;
 
-public class Team {
+import java.io.Serializable;
+
+public class Team implements Serializable {
 	private Integer id;
 	private String conf;
 	private String type;
 	private String name;
 	private String abre;
 	private String parent;
+	private Integer aux;
+	
 	public Integer getId() {
 		return id;
 	}
@@ -43,6 +47,14 @@ public class Team {
 	public void setParent(String parent) {
 		this.parent = parent;
 	}
+	public Integer getAux() {
+		return aux;
+	}
+	public void setAux(Integer aux) {
+		this.aux = aux;
+	}
+	
+	
 	
 	
 

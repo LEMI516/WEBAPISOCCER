@@ -4,7 +4,9 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,7 +20,10 @@ import com.apisoccer.domain.Team;
 import com.apisoccer.services.TeamService;
 
 @RestController
+@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST})
 public class ApiSoccerController {
+	
+	public final String URI="http://localhost:8080";
 	
 	@Autowired
 	TeamService teamService;
@@ -28,8 +33,8 @@ public class ApiSoccerController {
 		return "Prueba del Rest";
 	}	
 	
-	@RequestMapping(value = "/teams/", method = RequestMethod.POST)
-	public ResponseEntity<String> saveTeams(@RequestBody List<Team> teams ){
+	@RequestMapping(value = "/teams/", method = RequestMethod.POST , produces = MediaType.APPLICATION_JSON_VALUE,  headers = "Accept=application/json")
+	public ResponseEntity<Object> saveTeams(@RequestBody List<Team> teams ){
 		Message msg=teamService.saveTeams(teams);
 		HttpStatus status=HttpStatus.OK;
 		if(msg.isResult()) {
@@ -37,7 +42,7 @@ public class ApiSoccerController {
 		}else {
 			status=HttpStatus.INTERNAL_SERVER_ERROR;
 		}
-		return new ResponseEntity(msg,status);
+		return new ResponseEntity<Object>(msg, status);
 	}
 	
 	@RequestMapping(value = "/historys/", method = RequestMethod.POST)
