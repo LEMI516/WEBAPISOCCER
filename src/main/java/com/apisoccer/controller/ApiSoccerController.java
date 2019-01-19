@@ -37,11 +37,6 @@ public class ApiSoccerController {
 	public ResponseEntity<Object> saveTeams(@RequestBody List<Team> teams ){
 		Message msg=teamService.saveTeams(teams);
 		HttpStatus status=HttpStatus.OK;
-		if(msg.isResult()) {
-			
-		}else {
-			status=HttpStatus.INTERNAL_SERVER_ERROR;
-		}
 		return new ResponseEntity<Object>(msg, status);
 	}
 	
