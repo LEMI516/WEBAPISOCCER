@@ -3,6 +3,7 @@ package com.apisoccer.imp;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -80,8 +81,21 @@ public class TeamDaoImp implements TeamDao {
         	t.setAbre(rs.getString("abre"));
         	t.setParent(rs.getString("parent"));
         	t.setAux(rs.getInt("aux"));
+        	t.setColor(rs.getString("color"));
             return t;
         }
     }	
+	
+	public Team defaultTeam(){
+		Team t=new Team();
+    	t.setId(1);
+    	t.setConf("UEFA");
+    	t.setType("SEL");
+    	t.setName("ALEMANIA");
+    	t.setAbre("ALE");
+    	t.setParent("UEFA");
+    	t.setAux(0);		
+		return t;
+	}
 
 }
