@@ -8,6 +8,7 @@ public class History {
 	private String cuar;
 	private String torn;
 	private String comp;
+	
 	public Integer getId() {
 		return id;
 	}

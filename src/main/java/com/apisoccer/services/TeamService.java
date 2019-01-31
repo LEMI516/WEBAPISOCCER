@@ -19,5 +19,9 @@ public class TeamService {
 		return teamDao.saveTeams(teams);
 	}
 	
+	public Message allTeams() {
+		return teamDao.AllTeams();
+	}
+	
 
 }
