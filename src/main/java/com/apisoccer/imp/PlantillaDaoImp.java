@@ -1,16 +1,20 @@
 package com.apisoccer.imp;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 import com.apisoccer.dao.PlantillaDao;
 import com.apisoccer.domain.Message;
 import com.apisoccer.domain.Plantilla;
-import com.apisoccer.domain.Team;
+
+
 
 @Repository
 public class PlantillaDaoImp implements PlantillaDao {
@@ -56,7 +60,41 @@ public class PlantillaDaoImp implements PlantillaDao {
 	@Override
 	public Message AllPlantillas() {
 		// TODO Auto-generated method stub
-		return null;
+		Message msg=new Message();
+		msg.setMsg("");
+		msg.setStatus(Message.OK);
+		msg.setResult(true);
+		try {
+			List<Plantilla> plantillas=jdbcTemplate.query("SELECT * FROM plantilla", new PlantillaRowMapper());
+			msg.setObj(plantillas);
+		} catch (Exception e) {
+			msg.setMsg(e.getMessage());
+			msg.setStatus(Message.FAIL);
+			msg.setResult(false);
+			e.printStackTrace();
+		}
+		return msg;
 	}
+	
+	private static class PlantillaRowMapper implements RowMapper<Plantilla> {
+        @Override
+        public Plantilla mapRow(ResultSet rs, int rowNum) throws SQLException {
+        	Plantilla p=new Plantilla();
+        	p.setId(rs.getInt("id"));
+        	p.setCantClaxGru(rs.getString("cantClaxGru"));
+        	p.setCantGru(rs.getString("cantGru"));
+        	p.setCantMejTerceros(rs.getString("cantMejTerceros"));
+        	p.setCantTeam(rs.getString("cantTeam"));
+        	p.setCantTeamxGru(rs.getString("cantTeamxGru"));
+        	p.setCff(rs.getString("cff"));
+        	p.setCfp(rs.getString("cfp"));
+        	p.setConfederation(rs.getString("confederation"));
+        	p.setName(rs.getString("name"));
+        	p.setTypeMatch(rs.getString("typeMatch"));
+        	p.setTypeTeam(rs.getString("typeTeam"));
+        	p.setTypeTorneo(rs.getString("typeTorneo"));
+        	return p;
+        }
+    }	
 
 }

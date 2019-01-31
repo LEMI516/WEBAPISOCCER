@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import com.apisoccer.dao.CompetenciaDao;
 import com.apisoccer.domain.Competencia;
 import com.apisoccer.domain.Message;
-import com.apisoccer.domain.Plantilla;
+
 
 @Repository
 public class CompetenciaDaoImp implements CompetenciaDao {

@@ -111,22 +111,4 @@ public class ApiSoccerController {
 		return new ResponseEntity<Message>(msg, HttpStatus.OK);
 	}
 	
-	@RequestMapping(value = "/allcompetencias/",method= RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Message> listAllCompetencias(){
-		Message msg=competenciaServices.AllCompetencias();
-		return new ResponseEntity<Message>(msg, HttpStatus.OK);
-	}
-	
-	@RequestMapping(value = "/allcompetenciasteams/",method= RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Message> listAllCompetenciasTeams(){
-		Message msg=competenciaEquipoServices.AllCompetenciaTeams();
-		return new ResponseEntity<Message>(msg, HttpStatus.OK);
-	}	
-	
-	@RequestMapping(value = "/allcompetenciasfixture/",method= RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Message> listAllCompetenciasFixture(){
-		Message msg=competenciaFixtureServices.AllCompetenciaFixtures();
-		return new ResponseEntity<Message>(msg, HttpStatus.OK);
-	}	
-
 }

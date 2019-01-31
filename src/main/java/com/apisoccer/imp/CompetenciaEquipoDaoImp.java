@@ -25,6 +25,8 @@ public class CompetenciaEquipoDaoImp implements CompetenciaEquipoDao {
 		msg.setMsg("");
 		msg.setStatus(Message.OK);
 		msg.setResult(true);
+		System.out.println("---->"+competenciaTeams.size());
+		if(true)return msg;		
 		try {
 			 String sql = "INSERT INTO plantilla (id,fasep,id_comp,team) VALUES (?,?,?,?)";
 			 jdbcTemplate.batchUpdate(sql, competenciaTeams, 100,
