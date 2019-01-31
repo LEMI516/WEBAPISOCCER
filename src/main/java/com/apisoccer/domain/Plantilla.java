@@ -93,6 +93,24 @@ public class Plantilla {
 	public void setTypeTorneo(String typeTorneo) {
 		this.typeTorneo = typeTorneo;
 	}
+	@Override
+	public String toString() {
+		return "{ id:"+getId()+","
+	          +" cantClaxGru:\""+getCantClaxGru()+"\","
+			  +" cantGru: \""+getCantGru()+"\","
+	          +" cantMejTerceros: \""+getCantMejTerceros()+"\","
+			  +" cantTeam: \""+getCantTeam()+"\" ,"
+	          +" cantTeamxGru: \""+getCantTeamxGru()+"\","
+			  +" cff: \""+getCff()+"\","
+	          +" cfp: \""+getCfp()+"\","
+	          +" confederation: \""+getConfederation()+"\","
+	          +" name: \""+getName()+"\","
+	          +" typeMatch: \""+getTypeMatch()+"\","
+	          +" typeTeam: \""+getTypeTeam()+"\","
+	          +" typeTorneo: \""+getTypeTorneo()+"\"}";
+	}
+	
+	
 	
 	
 

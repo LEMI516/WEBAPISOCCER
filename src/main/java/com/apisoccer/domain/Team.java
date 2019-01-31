@@ -10,6 +10,7 @@ public class Team implements Serializable {
 	private String abre;
 	private String parent;
 	private Integer aux;
+	private String color;
 	
 	public Integer getId() {
 		return id;
@@ -53,6 +54,13 @@ public class Team implements Serializable {
 	public void setAux(Integer aux) {
 		this.aux = aux;
 	}
+	public String getColor() {
+		return color;
+	}
+	public void setColor(String color) {
+		this.color = color;
+	}
+	
 	
 	
 	
