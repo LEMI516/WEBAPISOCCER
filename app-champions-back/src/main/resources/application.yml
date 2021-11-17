@@ -1,0 +1,17 @@
+server:
+  port: 8010
+  servlet:
+    context-path: /app-champions
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/champions?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC # Jdbc base de datos
+    username: root
+    password: test123456
+    driverClassName: com.mysql.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL57InnoDBDialect #Dialecto base de datos
