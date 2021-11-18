@@ -18,4 +18,9 @@ public class HistoryController {
     public void saveAll(@RequestBody List<History> list){
         historyRepository.saveAll(list);
     }
+
+    @GetMapping("")
+    public List<History> getAll(){
+        return historyRepository.findAll();
+    }
 }

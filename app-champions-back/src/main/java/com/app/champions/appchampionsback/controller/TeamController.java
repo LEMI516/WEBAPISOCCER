@@ -19,4 +19,9 @@ public class TeamController {
     public void saveAll(@RequestBody List<Team> teamList){
         teamRepository.saveAll(teamList);
     }
+
+    @GetMapping("")
+    public List<Team> getAll(){
+        return teamRepository.findAll();
+    }
 }

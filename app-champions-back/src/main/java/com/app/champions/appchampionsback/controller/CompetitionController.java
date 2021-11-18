@@ -18,4 +18,9 @@ public class CompetitionController {
     public void saveAll(@RequestBody List<Competition> list){
         competitionRepository.saveAll(list);
     }
+
+    @GetMapping
+    public List<Competition> getAll(){
+        return competitionRepository.findAll();
+    }
 }
